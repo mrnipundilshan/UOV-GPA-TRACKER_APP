@@ -3,25 +3,32 @@ import 'package:flutter/material.dart';
 class Background extends StatelessWidget {
   final Widget child;
 
-  const Background({Key? key, required this.child}) : super(key: key);
+  const Background({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/bg.png'),
-          fit: BoxFit.cover,
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    return Stack(
+      children: [
+        Positioned(
+          top: height * 1, // Adjust the top position
+          left: width * 3, // Adjust the left position
+          child: Image.asset('assets/bg.png', fit: BoxFit.fitWidth),
         ),
-        gradient: LinearGradient(
-          colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+        Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: SafeArea(child: child),
         ),
-      ),
-      child: SafeArea(child: child),
+      ],
     );
   }
 }
