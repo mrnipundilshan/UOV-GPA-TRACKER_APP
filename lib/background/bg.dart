@@ -11,11 +11,6 @@ class Background extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
-        Positioned(
-          top: height * 1, // Adjust the top position
-          left: width * 3, // Adjust the left position
-          child: Image.asset('assets/bg.png', fit: BoxFit.fitWidth),
-        ),
         Container(
           width: double.infinity,
           height: double.infinity,
@@ -27,6 +22,15 @@ class Background extends StatelessWidget {
             ),
           ),
           child: SafeArea(child: child),
+        ),
+        Positioned(
+          top: height * 0.6, // Adjust the top position
+          left: width * -0.3, // Adjust the left position
+          child: Image.asset(
+            'assets/bg.png',
+            fit: BoxFit.fitWidth,
+            opacity: AlwaysStoppedAnimation(0.1),
+          ),
         ),
       ],
     );
