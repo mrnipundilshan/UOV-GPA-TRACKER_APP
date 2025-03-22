@@ -11,37 +11,43 @@ class homepage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Background(
-      child: Scaffold(
-        body: Background(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/profile.svg',
-                width: width * 0.5,
-                colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-              ),
-              SizedBox(height: height * 0.01),
-              Text(
-                "Add Student",
-                style: TextStyle(color: Colors.white, fontSize: width * 0.1),
-              ),
-              IconButton(
-                alignment: Alignment.topRight,
-                onPressed: () {
-                  // Add your button action here
-                },
-                icon: Icon(
-                  Icons.add_circle_outline,
-                  size: width * 0.2,
-                  color: Colors.white,
+      child: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/profile.svg',
+                  width: width * 0.5,
+                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
                 ),
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-              ),
-            ],
+                SizedBox(height: height * 0.01),
+                Text(
+                  "Add Student",
+                  style: TextStyle(color: Colors.white, fontSize: width * 0.1),
+                ),
+              ],
+            ),
           ),
-        ),
+
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: IconButton(
+              onPressed: () {
+                // Add your button action here
+              },
+              icon: Icon(
+                Icons.add_circle_outline,
+                size: width * 0.2,
+                color: Colors.white,
+              ),
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+            ),
+          ),
+        ],
       ),
     );
   }
