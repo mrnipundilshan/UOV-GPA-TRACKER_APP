@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newgpaapp/facultyselectionpage.dart';
 import 'package:newgpaapp/homepage.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: Colors.cyanAccent,
         ),
-        home: Homepage(),
+        home: FacSelectionPage(),
       ),
     );
   }
