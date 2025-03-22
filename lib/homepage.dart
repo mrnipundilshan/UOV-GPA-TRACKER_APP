@@ -24,13 +24,13 @@ class homepage extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.01),
                 Text(
-                  "Add Student",
+                  'Add Student',
+                  textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: width * 0.1),
                 ),
               ],
             ),
           ),
-
           Positioned(
             bottom: 20,
             right: 20,
