@@ -19,12 +19,25 @@ class homepage extends StatelessWidget {
               SvgPicture.asset(
                 'assets/profile.svg',
                 width: width * 0.5,
-                color: Colors.white,
+                colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
               SizedBox(height: height * 0.01),
               Text(
                 "Add Student",
                 style: TextStyle(color: Colors.white, fontSize: width * 0.1),
+              ),
+              IconButton(
+                alignment: Alignment.topRight,
+                onPressed: () {
+                  // Add your button action here
+                },
+                icon: Icon(
+                  Icons.add_circle_outline,
+                  size: width * 0.2,
+                  color: Colors.white,
+                ),
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
               ),
             ],
           ),
