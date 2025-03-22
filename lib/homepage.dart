@@ -1,10 +1,10 @@
 import 'background/bg.dart';
+import 'facultyselectionpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// ignore: camel_case_types
-class homepage extends StatelessWidget {
-  const homepage({super.key});
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,15 @@ class homepage extends StatelessWidget {
                   width: width * 0.5,
                   colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
                 ),
-                SizedBox(height: height * 0.01),
+                SizedBox(height: height * 0.02),
                 Text(
                   'Add Student',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: width * 0.1),
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Colors.white,
+                    fontSize: width * 0.1,
+                  ),
                 ),
               ],
             ),
@@ -36,7 +40,11 @@ class homepage extends StatelessWidget {
             right: 20,
             child: IconButton(
               onPressed: () {
-                // Add your button action here
+                // Navigate to a new screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FacSelectionPage()),
+                );
               },
               icon: Icon(
                 Icons.add_circle_outline,
