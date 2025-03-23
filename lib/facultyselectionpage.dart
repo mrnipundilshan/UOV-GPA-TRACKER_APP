@@ -71,7 +71,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                 dropdownStyleData: DropdownStyleData(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: const Color.fromARGB(255, 54, 162, 189),
+                    color: const Color.fromARGB(255, 48, 131, 151),
                   ),
                   offset: const Offset(0, 0),
                 ),
