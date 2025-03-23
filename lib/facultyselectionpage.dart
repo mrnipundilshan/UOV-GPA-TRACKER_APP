@@ -48,11 +48,9 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                     style: TextStyle(fontSize: 16, color: Colors.white),
                     decoration: InputDecoration(
                       hintText: 'Enter Name',
-
                       hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                       border: InputBorder.none,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
 
