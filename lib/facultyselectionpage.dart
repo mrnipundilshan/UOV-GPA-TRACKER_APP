@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-
 import 'background/bg.dart';
 import 'package:flutter/material.dart';
+import 'databasehelper.dart';
 
 class FacSelectionPage extends StatefulWidget {
   const FacSelectionPage({super.key});
@@ -21,6 +21,8 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
   String? selectedFac;
   String? selectedCourse;
   List<String> availableCourses = [];
+  final TextEditingController _nameController = TextEditingController();
+  final DatabaseHelper _dbHelper = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                     color: const Color.fromARGB(255, 45, 100, 107),
                   ),
                   child: TextField(
+                    controller: _nameController,
                     style: TextStyle(fontSize: 16, color: Colors.white),
                     decoration: InputDecoration(
                       hintText: 'Enter Name',
@@ -84,10 +87,8 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                   onChanged: (String? newValue) {
                     setState(() {
                       selectedFac = newValue!;
-                      selectedCourse = null; // Reset course selection
-                      availableCourses =
-                          courses[selectedFac] ??
-                          []; // Update available courses
+                      selectedCourse = null;
+                      availableCourses = courses[selectedFac] ?? [];
                     });
                   },
                   buttonStyleData: ButtonStyleData(
@@ -199,7 +200,34 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                 ),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_nameController.text.isNotEmpty &&
+                        selectedFac != null &&
+                        selectedCourse != null) {
+                      Map<String, dynamic> student = {
+                        'name': _nameController.text,
+                        'faculty': selectedFac,
+                        'course': selectedCourse,
+                      };
+                      await _dbHelper.insertStudent(student);
+
+                      // Clear the form after adding
+                      _nameController.clear();
+                      setState(() {
+                        selectedFac = null;
+                        selectedCourse = null;
+                        availableCourses = [];
+                      });
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Student added successfully!')),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please fill all fields!')),
+                      );
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
