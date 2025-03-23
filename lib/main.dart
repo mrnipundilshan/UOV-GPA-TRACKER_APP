@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newgpaapp/facultyselectionpage.dart';
-import 'package:newgpaapp/homepage.dart';
 
 void main() {
   runApp(MyApp());
