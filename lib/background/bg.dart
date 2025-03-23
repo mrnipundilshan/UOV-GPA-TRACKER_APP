@@ -21,17 +21,17 @@ class Background extends StatelessWidget {
               end: Alignment.bottomRight,
             ),
           ),
-          child: SafeArea(child: child),
         ),
         Positioned(
-          top: height * 0.6, // Adjust the top position
-          left: width * -0.3, // Adjust the left position
+          top: height * 0.6,
+          left: width * -0.3,
           child: Image.asset(
             'assets/bg.png',
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
             opacity: AlwaysStoppedAnimation(0.1),
           ),
         ),
+        SafeArea(child: child),
       ],
     );
   }

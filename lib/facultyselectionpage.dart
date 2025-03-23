@@ -14,8 +14,8 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
   final List<String> faculties = <String>['FAS', 'Tech', 'Bussiness Studies'];
   final Map<String, List<String>> courses = {
     'FAS': ['IT', 'BIO', 'AMC', 'CS'],
-    'Tech': ['Engineering', 'Computer Science', 'Electronics'],
-    'Bussiness Studies': ['Marketing', 'Finance', 'Management'],
+    'Tech': [],
+    'Bussiness Studies': [],
   };
 
   String? selectedFac;
@@ -30,10 +30,34 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
       body: Background(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: height * 0.05),
             Column(
               children: [
+                Container(
+                  width: width * 0.5,
+                  height: height * 0.07,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: const Color.fromARGB(255, 45, 100, 107),
+                  ),
+                  child: TextField(
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Enter Name',
+
+                      hintStyle: TextStyle(fontSize: 16, color: Colors.white),
+                      border: InputBorder.none,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
+                SizedBox(height: height * 0.05),
+
                 DropdownButton2<String>(
                   underline: SizedBox.shrink(),
                   hint: Text(
@@ -154,7 +178,48 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
               ],
             ),
 
-            SizedBox(height: height * 0.05),
+            SizedBox(height: height * 0.1),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 45, 100, 107),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    minimumSize: Size(width * 0.4, height * 0.07),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 2,
+                  ),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 45, 100, 107),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    minimumSize: Size(width * 0.4, height * 0.07),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 2,
+                  ),
+                  child: Text(
+                    'Add',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(height: height * 0.0005),
           ],
         ),
       ),
