@@ -218,14 +218,6 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         selectedCourse = null;
                         availableCourses = [];
                       });
-
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Student added successfully!')),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please fill all fields!')),
-                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(
