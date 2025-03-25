@@ -28,7 +28,8 @@ class DatabaseHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         faculty TEXT NOT NULL,
-        course TEXT NOT NULL
+        course TEXT NOT NULL,
+        gpa REAL NOT NULL
         )
         ''');
   }

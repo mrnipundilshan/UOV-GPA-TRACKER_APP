@@ -208,7 +208,27 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         'name': _nameController.text,
                         'faculty': selectedFac,
                         'course': selectedCourse,
+                        'gpa': 0.0,
                       };
+
+                      await _dbHelper.insertStudent(student);
+
+                      // Clear the form after adding
+                      _nameController.clear();
+                      setState(() {
+                        selectedFac = null;
+                        selectedCourse = null;
+                        availableCourses = [];
+                      });
+                    } else if (_nameController.text.isNotEmpty &&
+                        selectedFac == 'Tech') {
+                      Map<String, dynamic> student = {
+                        'name': _nameController.text,
+                        'faculty': selectedFac,
+                        'course': '-',
+                        'gpa': 0.0,
+                      };
+
                       await _dbHelper.insertStudent(student);
 
                       // Clear the form after adding
@@ -219,6 +239,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         availableCourses = [];
                       });
                     }
+                    ;
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
