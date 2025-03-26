@@ -82,12 +82,16 @@ class _HomepageState extends State<Homepage> {
                               right: 5,
                             ),
                     child: ListTile(
-                      contentPadding: EdgeInsets.only(left: width * 0.05),
+                      contentPadding: EdgeInsets.only(
+                        left: width * 0.05,
+                        right: width * 0.05,
+                      ),
+
                       title: Text(
                         student['name'],
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: width * 0.05,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -105,6 +109,14 @@ class _HomepageState extends State<Homepage> {
                             style: const TextStyle(color: Colors.white70),
                           ),
                         ],
+                      ),
+                      trailing: Text(
+                        'GPA: ${student['gpa'].toStringAsFixed(2)}', // Format GPA to 2 decimal places
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: width * 0.05,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   );
