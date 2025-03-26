@@ -183,11 +183,13 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    minimumSize: Size(width * 0.4, height * 0.07),
+                    minimumSize: Size(width * 0.25, height * 0.06),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -244,7 +246,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    minimumSize: Size(width * 0.4, height * 0.07),
+                    minimumSize: Size(width * 0.25, height * 0.06),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

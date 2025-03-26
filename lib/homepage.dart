@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'background/bg.dart';
 import 'facultyselectionpage.dart';
 import 'package:flutter/material.dart';
@@ -40,10 +42,27 @@ class Homepage extends StatelessWidget {
             right: 20,
             child: IconButton(
               onPressed: () {
-                // Navigate to a new screen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => FacSelectionPage()),
+                showDialog(
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                      child: Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: SizedBox(
+                            width: width * 0.8,
+                            height: height * 0.7,
+                            child: FacSelectionPage(),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
               icon: Icon(
