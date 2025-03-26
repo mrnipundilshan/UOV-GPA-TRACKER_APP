@@ -241,7 +241,6 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         availableCourses = [];
                       });
                     }
-                    ;
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
