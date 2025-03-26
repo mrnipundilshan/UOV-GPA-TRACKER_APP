@@ -114,8 +114,8 @@ class _HomepageState extends State<Homepage> {
             bottom: 20,
             right: 20,
             child: IconButton(
-              onPressed: () {
-                showDialog(
+              onPressed: () async {
+                final result = await showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return BackdropFilter(
@@ -136,6 +136,10 @@ class _HomepageState extends State<Homepage> {
                     );
                   },
                 );
+                // Reload students if a student was added successfully
+                if (result == true) {
+                  _loadStudents();
+                }
               },
               icon: Icon(
                 Icons.add_circle_outline,

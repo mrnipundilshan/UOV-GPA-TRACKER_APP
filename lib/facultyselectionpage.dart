@@ -222,6 +222,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         selectedCourse = null;
                         availableCourses = [];
                       });
+                      Navigator.pop(context, true);
                     } else if (_nameController.text.isNotEmpty &&
                         selectedFac == 'Tech') {
                       Map<String, dynamic> student = {
@@ -240,6 +241,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                         selectedCourse = null;
                         availableCourses = [];
                       });
+                      Navigator.pop(context);
                     }
                   },
                   style: ElevatedButton.styleFrom(
