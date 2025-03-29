@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:newgpaapp/itgpapage.dart';
+
 import 'background/bg.dart';
 import 'facultyselectionpage.dart';
 import 'package:flutter/material.dart';
@@ -81,41 +83,54 @@ class _HomepageState extends State<Homepage> {
                               left: 5,
                               right: 5,
                             ),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.only(
-                        left: width * 0.05,
-                        right: width * 0.05,
-                      ),
-
-                      title: Text(
-                        student['name'],
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: width * 0.05,
-                          fontWeight: FontWeight.bold,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => itgpapage(
+                                  studentId:
+                                      student['id'], // Pass the student ID
+                                ),
+                          ),
+                        );
+                      },
+                      child: ListTile(
+                        contentPadding: EdgeInsets.only(
+                          left: width * 0.05,
+                          right: width * 0.05,
                         ),
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 8),
-                          Text(
-                            'Faculty: ${student['faculty']}',
-                            style: const TextStyle(color: Colors.white70),
+                        title: Text(
+                          student['name'],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: width * 0.05,
+                            fontWeight: FontWeight.bold,
                           ),
-                          const SizedBox(height: 4),
-                          Text(
-                            'Course: ${student['course']}',
-                            style: const TextStyle(color: Colors.white70),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 8),
+                            Text(
+                              'Faculty: ${student['faculty']}',
+                              style: const TextStyle(color: Colors.white70),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Course: ${student['course']}',
+                              style: const TextStyle(color: Colors.white70),
+                            ),
+                          ],
+                        ),
+                        trailing: Text(
+                          'GPA: ${student['gpa'].toStringAsFixed(2)}', // Format GPA to 2 decimal places
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: width * 0.05,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      ),
-                      trailing: Text(
-                        'GPA: ${student['gpa'].toStringAsFixed(2)}', // Format GPA to 2 decimal places
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: width * 0.05,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
