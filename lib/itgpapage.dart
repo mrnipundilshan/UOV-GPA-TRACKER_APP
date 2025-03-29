@@ -1,3 +1,5 @@
+import 'package:newgpaapp/reuse/reuse.dart';
+
 import 'background/bg.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +19,22 @@ class _itgpapageState extends State<itgpapage> {
     return Background(
       child: Column(
         children: [
-          Center(
-            child: Text(
-              'Student ID: ${widget.studentId}', // Display the student ID
-              style: TextStyle(
-                decoration: TextDecoration.none,
-                color: Colors.white,
-                fontSize: width * 0.05,
-                fontWeight: FontWeight.bold,
-              ),
+          SizedBox(height: height * 0.03),
+          Text(
+            "1st Year",
+            style: TextStyle(
+              fontSize: 36,
+              color: Colors.white,
+              decoration: TextDecoration.none,
             ),
+          ),
+          SizedBox(height: height * 0.01),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              sembutton(width: width, height: height, name: 'Semester 01'),
+              sembutton(width: width, height: height, name: 'Semester 02'),
+            ],
           ),
         ],
       ),
