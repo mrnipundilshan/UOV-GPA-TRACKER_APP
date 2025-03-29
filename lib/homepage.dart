@@ -1,5 +1,6 @@
 import 'dart:ui';
-import 'package:newgpaapp/itgpapage.dart';
+import 'package:newgpaapp/it/itgpapage.dart';
+import 'package:newgpaapp/it/semone.dart';
 
 import 'background/bg.dart';
 import 'facultyselectionpage.dart';
