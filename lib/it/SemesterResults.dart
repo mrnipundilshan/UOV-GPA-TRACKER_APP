@@ -213,7 +213,7 @@ class _SemesterResultsState extends State<SemesterResults> {
             ),
           // Save & Cancel buttons (same as before)
           Padding(
-            padding: EdgeInsets.only(bottom: height * 0.15),
+            padding: EdgeInsets.only(bottom: height * 0.05),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

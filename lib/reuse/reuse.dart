@@ -62,6 +62,89 @@ class sembutton extends StatelessWidget {
             ),
           );
         }
+        if (sem == 3) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT2114',
+                      'IT2122',
+                      'IT2133',
+                      'IT2143',
+                      'IT2153',
+                      'ACU2113',
+                    ],
+                  ),
+            ),
+          );
+        }
+        if (sem == 4) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT2212',
+                      'IT2223',
+                      'IT2234',
+                      'IT2244',
+                      'IT2252',
+                      'ACU2212',
+                    ],
+                  ),
+            ),
+          );
+        }
+        if (sem == 5) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT3113',
+                      'IT3122',
+                      'IT3133',
+                      'IT3143',
+                      'IT3152',
+                      'IT3162',
+                      'ACU3112',
+                    ],
+                  ),
+            ),
+          );
+        }
+        if (sem == 6) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT3213',
+                      'IT3223',
+                      'IT3232',
+                      'IT3243',
+                      'IT3252',
+                      'IT3262',
+                      'ACU3212',
+                      'ACU3222',
+                    ],
+                  ),
+            ),
+          );
+        }
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 45, 100, 107),
