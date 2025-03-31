@@ -55,6 +55,17 @@ class DatabaseHelper {
       )
     ''');
 
+    //create gpa_results table
+    await db.execute('''
+      CREATE TABLE gpa_results(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_id INTEGER NOT NULL,
+        course_code TEXT NOT NULL,
+        gpa TEXT NOT NULL,
+        FOREIGN KEY (student_id) REFERENCES students(id)
+      )
+  ''');
+
     // Insert all the IT subjects
     await _insertAllSubjects(db);
   }
