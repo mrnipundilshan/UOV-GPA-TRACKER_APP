@@ -4,15 +4,15 @@ import 'package:newgpaapp/background/bg.dart';
 import 'package:newgpaapp/databasehelper.dart';
 import 'package:newgpaapp/homepage.dart';
 
-class itsemone extends StatefulWidget {
+class itsemtwo extends StatefulWidget {
   final int studentId; // Add this property
-  const itsemone({super.key, required this.studentId});
+  const itsemtwo({super.key, required this.studentId});
 
   @override
-  State<itsemone> createState() => _itsemoneState();
+  State<itsemtwo> createState() => _itsemtwoState();
 }
 
-class _itsemoneState extends State<itsemone> {
+class _itsemtwoState extends State<itsemtwo> {
   final List<String> results = <String>[
     'A+/A',
     'A-',
