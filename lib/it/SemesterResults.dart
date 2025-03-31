@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:newgpaapp/background/bg.dart';
 import 'package:newgpaapp/databasehelper.dart';
 import 'package:newgpaapp/homepage.dart';
-import 'package:sqflite/sqflite.dart';
 
 class SemesterResults extends StatefulWidget {
   final int studentId;
@@ -84,7 +83,6 @@ class _SemesterResultsState extends State<SemesterResults> {
         selectedResults = initialResults;
       });
     } catch (e) {
-      print('Error loading subjects: $e');
       // Optionally show error to user
       ScaffoldMessenger.of(
         context,

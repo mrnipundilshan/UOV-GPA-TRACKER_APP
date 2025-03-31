@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newgpaapp/it/SemesterResults.dart';
+import 'package:newgpaapp/it/semesterResults.dart';
 
 class sembutton extends StatelessWidget {
   const sembutton({
