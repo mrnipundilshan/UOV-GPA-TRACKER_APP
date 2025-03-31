@@ -57,13 +57,18 @@ class DatabaseHelper {
 
     //create gpa_results table
     await db.execute('''
-      CREATE TABLE gpa_results(
+      CREATE TABLE gpa_results (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         student_id INTEGER NOT NULL,
         course_code TEXT NOT NULL,
-        gpa TEXT NOT NULL,
-        FOREIGN KEY (student_id) REFERENCES students(id)
+        semester INTEGER NOT NULL,
+        gpa TEXT,
+        UNIQUE(student_id, course_code, semester) ON CONFLICT REPLACE
       )
+    ''');
+    // Add an index for faster semester-wise queries
+    await db.execute('''
+    CREATE INDEX idx_student_semester ON gpa_results(student_id, semester);
   ''');
 
     // Insert all the IT subjects
@@ -104,59 +109,29 @@ class DatabaseHelper {
     await _insertSubject(db, 'IT2153', 'Computer Graphics', 3);
     await _insertSubject(db, 'ACU2113', 'English Language II', 3);
 
-    await _insertSubject(db, 'IT2212', 'Management Information Systems', 2);
-    await _insertSubject(db, 'IT2223', 'Design and Analysis of Algorithms', 3);
-    await _insertSubject(
-      db,
-      'IT2234',
-      'Web Services and Server Technologies',
-      4,
-    );
+    await _insertSubject(db, 'IT2212', 'MIS', 2);
+    await _insertSubject(db, 'IT2223', 'DAA', 3);
+    await _insertSubject(db, 'IT2234', 'Web Services', 4);
     await _insertSubject(db, 'IT2244', 'Operating Systems', 4);
-    await _insertSubject(
-      db,
-      'IT2252',
-      'Social and Professional Issues in IT',
-      2,
-    );
+    await _insertSubject(db, 'IT2252', 'Social and Professional Issues', 2);
     await _insertSubject(db, 'ACU2212', 'Communication and Soft Skills', 2);
 
-    await _insertSubject(
-      db,
-      'IT3113',
-      'Knowledge Based Systems and Logic Programming',
-      3,
-    );
+    await _insertSubject(db, 'IT3113', 'KBS', 3);
     await _insertSubject(db, 'IT3122', 'Computer Security', 2);
-    await _insertSubject(db, 'IT3133', 'Mobile Communication and Computing', 3);
+    await _insertSubject(db, 'IT3133', 'MCC', 3);
     await _insertSubject(db, 'IT3143', 'Digital Image Processing', 3);
     await _insertSubject(db, 'IT3152', 'Software Quality Assurance', 2);
     await _insertSubject(db, 'IT3162', 'Group Project', 2);
     await _insertSubject(db, 'ACU3112', 'Career Guidance', 2);
 
     await _insertSubject(db, 'IT3213', 'Human Computer Interaction', 3);
-    await _insertSubject(
-      db,
-      'IT3223',
-      'Advanced Database Management Systems',
-      3,
-    );
+    await _insertSubject(db, 'IT3223', 'ADMS', 3);
     await _insertSubject(db, 'IT3232', 'E-Commerce', 2);
     await _insertSubject(db, 'IT3243', 'Parallel Computing', 3);
     await _insertSubject(db, 'IT3252', 'Multimedia Computing', 2);
     await _insertSubject(db, 'IT3262', 'Operations Research', 2);
-    await _insertSubject(
-      db,
-      'ACU3212',
-      'Management and Entrepreneurial Skills',
-      2,
-    );
-    await _insertSubject(
-      db,
-      'ACU3222',
-      'Research Methodology and Scientific Writing',
-      2,
-    );
+    await _insertSubject(db, 'ACU3212', 'MES', 2);
+    await _insertSubject(db, 'ACU3222', 'Research Methodology', 2);
   }
 
   Future<void> _insertSubject(

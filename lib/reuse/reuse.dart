@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newgpaapp/it/semone.dart';
-import 'package:newgpaapp/it/semtwo.dart';
+import 'package:newgpaapp/it/SemesterResults.dart';
 
 class sembutton extends StatelessWidget {
   const sembutton({
@@ -26,7 +25,19 @@ class sembutton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => itsemone(studentId: studentId),
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT113',
+                      'IT1122',
+                      'IT1134',
+                      'IT1144',
+                      'IT1152',
+                      'ACU1113',
+                    ],
+                  ),
             ),
           );
         }
@@ -34,7 +45,20 @@ class sembutton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => itsemtwo(studentId: studentId),
+              builder:
+                  (context) => SemesterResults(
+                    studentId: studentId,
+                    semester: sem,
+                    courseCodes: [
+                      'IT1214',
+                      'IT1223',
+                      'IT1232',
+                      'IT1242',
+                      'IT1252',
+                      'IT11262',
+                      'ACU1212',
+                    ],
+                  ),
             ),
           );
         }
