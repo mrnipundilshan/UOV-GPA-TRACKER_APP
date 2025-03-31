@@ -1,4 +1,4 @@
-package com.example.newgpaapp
+package com.nipun.dilshan
 
 import io.flutter.embedding.android.FlutterActivity
 

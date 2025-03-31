@@ -120,6 +120,9 @@ class _SemesterResultsState extends State<SemesterResults> {
       }
     });
 
+    // Update the student's GPA
+    await _dbHelper.updateStudentGPA(widget.studentId);
+
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => Homepage()),

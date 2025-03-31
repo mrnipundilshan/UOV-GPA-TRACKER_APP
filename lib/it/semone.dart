@@ -30,8 +30,6 @@ class _itsemoneState extends State<itsemone> {
 
   final DatabaseHelper _dbHelper = DatabaseHelper();
   List<Map<String, dynamic>> subjects = [];
-  Map<String, String?> selectedResults =
-      {}; // Map to store selected results for each subject
 
   @override
   void initState() {
@@ -47,64 +45,9 @@ class _itsemoneState extends State<itsemone> {
       whereArgs: ['IT113', 'IT1122', 'IT1134', 'IT1144', 'IT1152', 'ACU1113'],
     );
 
-    final List<Map<String, dynamic>> savedResults = await db.query(
-      'gpa_results',
-      where: 'student_id = ?',
-      whereArgs: [widget.studentId],
-    );
-
-    // Initialize selectedResults with all subjects
-    Map<String, String?> initialResults = {};
-    for (var subject in loadedSubjects) {
-      initialResults[subject['course_code']] = null;
-    }
-
-    // Update with saved results
-    for (var result in savedResults) {
-      initialResults[result['course_code']] = result['gpa'];
-    }
-
     setState(() {
       subjects = loadedSubjects;
-      selectedResults = initialResults;
     });
-  }
-
-  Future<void> _saveResults() async {
-    final db = await _dbHelper.database;
-
-    // Start a transaction to ensure all operations complete successfully
-    await db.transaction((txn) async {
-      for (var subject in subjects) {
-        final courseCode = subject['course_code'];
-        final gpa = selectedResults[courseCode];
-
-        if (gpa != null) {
-          // First try to update existing record
-          int updated = await txn.update(
-            'gpa_results',
-            {'gpa': gpa},
-            where: 'student_id = ? AND course_code = ?',
-            whereArgs: [widget.studentId, courseCode],
-          );
-
-          // If no record was updated (because it didn't exist), insert a new one
-          if (updated == 0) {
-            await txn.insert('gpa_results', {
-              'student_id': widget.studentId,
-              'course_code': courseCode,
-              'gpa': gpa,
-            });
-          }
-        }
-      }
-    });
-
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => Homepage()),
-      (route) => false,
-    );
   }
 
   @override
@@ -167,11 +110,10 @@ class _itsemoneState extends State<itsemone> {
                                     ),
                                   )
                                   .toList(),
-                          value: selectedResults[subject['course_code']],
+                          value: selectedresult,
                           onChanged: (String? newValue) {
                             setState(() {
-                              selectedResults[subject['course_code']] =
-                                  newValue;
+                              selectedresult = newValue;
                             });
                           },
                           buttonStyleData: ButtonStyleData(
@@ -203,6 +145,7 @@ class _itsemoneState extends State<itsemone> {
                   },
                 ),
               ),
+
           Padding(
             padding: EdgeInsets.only(bottom: height * 0.15),
             child: Row(
@@ -231,7 +174,7 @@ class _itsemoneState extends State<itsemone> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: _saveResults, // Save results to the database
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
