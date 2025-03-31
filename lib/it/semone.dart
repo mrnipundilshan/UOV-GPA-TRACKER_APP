@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newgpaapp/background/bg.dart';
+import 'package:newgpaapp/databasehelper.dart';
 import 'package:newgpaapp/homepage.dart';
 
 class itsemone extends StatefulWidget {
@@ -11,21 +12,53 @@ class itsemone extends StatefulWidget {
 }
 
 class _itsemoneState extends State<itsemone> {
+  final DatabaseHelper _dbHelper = DatabaseHelper();
+  List<Map<String, dynamic>> subjects = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSubjects();
+  }
+
+  Future<void> _loadSubjects() async {
+    final db = await _dbHelper.database;
+    final List<Map<String, dynamic>> loadedSubjects = await db.query(
+      'subjects',
+      where: 'course_code IN (?, ?, ?, ?, ?, ?)',
+      whereArgs: ['IT113', 'IT1122', 'IT1134', 'IT1144', 'IT1152', 'ACU1113'],
+    );
+
+    setState(() {
+      subjects = loadedSubjects;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Background(
-      child: Column(
+      child: Stack(
         children: [
-          Text(
-            widget.studentId.toString(),
-            style: TextStyle(
-              fontSize: 36,
-              color: Colors.white,
-              decoration: TextDecoration.none,
-            ),
-          ),
+          subjects.isEmpty
+              ? const Center(
+                child: Text(
+                  "No subjects found",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              )
+              : ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: subjects.length,
+                itemBuilder: (context, index) {
+                  final subject = subjects[index];
+                  return Card(
+                    child: ListTile(title: Text(subject['course_code'])),
+                  );
+                },
+              ),
+
           ElevatedButton(
             onPressed: () {
               Navigator.pushAndRemoveUntil(
