@@ -54,7 +54,24 @@ class _itsemoneState extends State<itsemone> {
                 itemBuilder: (context, index) {
                   final subject = subjects[index];
                   return Card(
-                    child: ListTile(title: Text(subject['course_code'])),
+                    margin:
+                        index == 0
+                            ? const EdgeInsets.only(
+                              bottom: 16,
+                              left: 5,
+                              right: 5,
+                              top: 16,
+                            )
+                            : const EdgeInsets.only(
+                              bottom: 16,
+                              left: 5,
+                              right: 5,
+                            ),
+                    color: const Color.fromARGB(255, 45, 100, 107),
+                    child: ListTile(
+                      title: Text(subject['course_code']),
+                      subtitle: Text(subject['course_title']),
+                    ),
                   );
                 },
               ),

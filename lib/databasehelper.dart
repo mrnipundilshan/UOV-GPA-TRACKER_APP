@@ -71,16 +71,11 @@ class DatabaseHelper {
 
   Future<void> _insertAllSubjects(Database db) async {
     // Insert all subjects without level/semester information
-    await _insertSubject(
-      db,
-      'IT113',
-      'Fundamentals of Information Technology',
-      3,
-    );
-    await _insertSubject(db, 'IT1122', 'Foundation of Mathematics', 2);
-    await _insertSubject(db, 'IT1134', 'Fundamentals of Programming', 4);
-    await _insertSubject(db, 'IT1144', 'Fundamentals of Web Programming', 4);
-    await _insertSubject(db, 'IT1152', 'Essentials of Statistics', 2);
+    await _insertSubject(db, 'IT113', 'Fundamentals of IT', 3);
+    await _insertSubject(db, 'IT1122', 'Mathematics', 2);
+    await _insertSubject(db, 'IT1134', 'Programming', 4);
+    await _insertSubject(db, 'IT1144', 'Web Programming', 4);
+    await _insertSubject(db, 'IT1152', 'Statistics', 2);
     await _insertSubject(db, 'ACU1113', 'English Language I', 3);
 
     await _insertSubject(
@@ -89,9 +84,9 @@ class DatabaseHelper {
       'Object Oriented Design and Programming',
       4,
     );
-    await _insertSubject(db, 'IT1223', 'Database Management Systems', 3);
+    await _insertSubject(db, 'IT1223', 'DMS', 3);
     await _insertSubject(db, 'IT1232', 'Project Management', 2);
-    await _insertSubject(db, 'IT1242', 'Principles of Computer Networks', 2);
+    await _insertSubject(db, 'IT1242', 'Computer Networks', 2);
     await _insertSubject(db, 'IT1252', 'Electronics and Device Interfacing', 2);
     await _insertSubject(db, 'IT11262', 'Mathematics for Computing', 2);
     await _insertSubject(
