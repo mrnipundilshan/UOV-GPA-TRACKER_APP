@@ -43,8 +43,16 @@ class _itsemtwoState extends State<itsemtwo> {
     final db = await _dbHelper.database;
     final List<Map<String, dynamic>> loadedSubjects = await db.query(
       'subjects',
-      where: 'course_code IN (?, ?, ?, ?, ?, ?)',
-      whereArgs: ['IT113', 'IT1122', 'IT1134', 'IT1144', 'IT1152', 'ACU1113'],
+      where: 'course_code IN (?, ?, ?, ?, ?, ?,?)',
+      whereArgs: [
+        'IT1214',
+        'IT1223',
+        'IT1232',
+        'IT1242',
+        'IT1252',
+        'IT1262',
+        'ACU1212',
+      ],
     );
 
     final List<Map<String, dynamic>> savedResults = await db.query(

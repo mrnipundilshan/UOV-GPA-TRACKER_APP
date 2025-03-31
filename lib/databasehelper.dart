@@ -89,23 +89,13 @@ class DatabaseHelper {
     await _insertSubject(db, 'IT1152', 'Statistics', 2);
     await _insertSubject(db, 'ACU1113', 'English Language I', 3);
 
-    await _insertSubject(
-      db,
-      'IT1214',
-      'Object Oriented Design and Programming',
-      4,
-    );
+    await _insertSubject(db, 'IT1214', 'OOP', 4);
     await _insertSubject(db, 'IT1223', 'DMS', 3);
     await _insertSubject(db, 'IT1232', 'Project Management', 2);
     await _insertSubject(db, 'IT1242', 'Computer Networks', 2);
-    await _insertSubject(db, 'IT1252', 'Electronics and Device Interfacing', 2);
+    await _insertSubject(db, 'IT1252', 'Electronics', 2);
     await _insertSubject(db, 'IT11262', 'Mathematics for Computing', 2);
-    await _insertSubject(
-      db,
-      'ACU1212',
-      'Social Harmony and Active Citizenship',
-      2,
-    );
+    await _insertSubject(db, 'ACU1212', 'Social Harmony', 2);
 
     await _insertSubject(db, 'IT2114', 'Data Structures', 2);
     await _insertSubject(db, 'IT2122', 'Software Engineering', 2);
