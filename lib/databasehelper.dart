@@ -125,6 +125,40 @@ class DatabaseHelper {
     await _insertSubject(db, 'IT3252', 'Multimedia Computing', 2);
     await _insertSubject(db, 'IT3262', 'Operations Research', 2);
 
+    // Semester I - Core Courses
+    await _insertSubject(
+      db,
+      'IT4113',
+      'Computer Organisation and Architecture',
+      3,
+    );
+    await _insertSubject(db, 'IT4123', 'Agent Based Computing', 3);
+    await _insertSubject(
+      db,
+      'IT4133',
+      'Bioinformatics and Computational Biology',
+      3,
+    );
+    await _insertSubject(db, 'IT4142', 'Compiler Design', 2);
+    await _insertSubject(db, 'IT4153', 'Advanced Computer Networks', 3);
+
+    // Semester I - Elective Courses
+    await _insertSubject(db, 'EL4112', 'Augmented and Virtual Reality', 2);
+    await _insertSubject(db, 'EL4122', 'Data Science', 2);
+    await _insertSubject(db, 'EL4132', 'GIS and Remote Sensing', 2);
+    await _insertSubject(db, 'EL4142', 'Graph Theory', 2);
+    await _insertSubject(db, 'EL4152', 'Machine Learning', 2);
+    await _insertSubject(db, 'EL4162', 'Numerical Computing', 2);
+    await _insertSubject(db, 'EL4172', 'Optical Networks', 2);
+    await _insertSubject(db, 'EL4182', 'Smart Systems', 2);
+    await _insertSubject(db, 'EL4192', 'Software Defined Networking', 2);
+
+    // Semester II - Core Courses
+    await _insertSubject(db, 'IT4216', 'Research Project', 6);
+    await _insertSubject(db, 'IT4226', 'Industrial Training', 6);
+
+    //AMC
+
     // Semester I
     await _insertSubject(db, 'AMA1113', 'Differential Equations', 3);
     await _insertSubject(db, 'PMA1113', 'Foundation of Mathematics', 3);
@@ -199,6 +233,310 @@ class DatabaseHelper {
     // Semester II
     await _insertSubject(db, 'CSH4216', 'Research Project', 6);
     await _insertSubject(db, 'CSH4226', 'Industrial Training', 6);
+
+    //BIO
+    // Level 1 - Semester I
+    await _insertSubject(
+      db,
+      'ENS1112',
+      'Fundamentals in Environmental Chemistry',
+      2,
+    );
+    await _insertSubject(
+      db,
+      'ENS1121',
+      'Analysis of Chemical Elements and Compounds',
+      1,
+    );
+    await _insertSubject(db, 'ENS1132', 'Cell and Molecular Biology', 2);
+    await _insertSubject(db, 'ENS1142', 'Plant Biology', 2);
+    await _insertSubject(db, 'ENS1153', 'Fundamentals of Animal Biology', 3);
+    await _insertSubject(db, 'ENS1162', 'Basic Mathematics', 2);
+    await _insertSubject(
+      db,
+      'CCCU1113',
+      'Fundamentals of Information Technology',
+      3,
+    );
+    await _insertSubject(db, 'ACU1113', 'English Language I', 3);
+
+    // Level 1 - Semester II
+    await _insertSubject(db, 'ENS1212', 'Environment and Agriculture', 2);
+    await _insertSubject(db, 'ENS1223', 'Soil Science', 3);
+    await _insertSubject(db, 'ENS1232', 'Environmental Sanitation', 2);
+    await _insertSubject(db, 'ENS1242', 'Principles of Economics', 2);
+    await _insertSubject(db, 'ENS1253', 'Earth and Atmospheric Sciences', 3);
+    await _insertSubject(
+      db,
+      'ENS1263',
+      'Fundamentals in Environmental Microbiology',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'ACU1212',
+      'Social Harmony and Active Citizenship',
+      2,
+    );
+
+    // Level 2 - Semester I
+    await _insertSubject(db, 'ENS2112', 'Biodiversity and Conservation', 2);
+    await _insertSubject(db, 'ENS2123', 'Food, Nutrition and Environment', 3);
+    await _insertSubject(db, 'ENS2132', 'Analytical Chemistry', 2);
+    await _insertSubject(db, 'ENS2142', 'Animal Behavior', 2);
+    await _insertSubject(
+      db,
+      'ENS2152',
+      'Forest Environmental Biology and Management',
+      2,
+    );
+    await _insertSubject(
+      db,
+      'ENS2162',
+      'Resource and Environmental Economics',
+      2,
+    );
+    await _insertSubject(
+      db,
+      'ENS2172',
+      'Sustainable Development for Environment',
+      2,
+    );
+    await _insertSubject(db, 'ACU2113', 'English Language II', 3);
+
+    // Level 2 - Semester II
+    await _insertSubject(
+      db,
+      'ENS2213',
+      'Applied Hydrology and Water Resource Management',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'ENS2222',
+      'Applied Ecology and Community Environment',
+      2,
+    );
+    await _insertSubject(db, 'ENS2233', 'Environmental Disaster Management', 3);
+    await _insertSubject(db, 'ENS2242', 'Energy and Environment', 2);
+    await _insertSubject(db, 'ENS2252', 'Ecotourism', 2);
+    await _insertSubject(
+      db,
+      'ENS2263',
+      'Environmental Pollution and Control',
+      3,
+    );
+    await _insertSubject(db, 'ACU2212', 'Communication and Soft skills', 2);
+
+    // Level 3 - Semester I
+    await _insertSubject(
+      db,
+      'ENS3113',
+      'Geographic Information System and Remote Sensing',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'ENS3122',
+      'Wildlife Conservation and Management',
+      2,
+    );
+    await _insertSubject(db, 'ENS3132', 'Environmental Policies and Law', 2);
+    await _insertSubject(db, 'ENS3143', 'Solid Waste Management', 3);
+    await _insertSubject(db, 'ENS3153', 'Environmental Biotechnology', 3);
+    await _insertSubject(
+      db,
+      'ENS3162',
+      'Industrial Chemistry and Pollution Monitoring',
+      2,
+    );
+    await _insertSubject(db, 'ACU3112', 'Career Guidance', 2);
+
+    // Level 3 - Semester II
+    await _insertSubject(
+      db,
+      'ENS3213',
+      'Statistics for Environmental Science',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'ENS3222',
+      'Environmental Impact Assessment and Environmental Audit',
+      2,
+    );
+    await _insertSubject(db, 'ENS3232', 'Marine Environment and Management', 2);
+    await _insertSubject(db, 'ENS3242', 'Wastewater Treatment', 2);
+    await _insertSubject(db, 'ENS3251', 'Seminar', 1);
+    await _insertSubject(
+      db,
+      'ENS3262',
+      'Biomolecules and Bioseparation Techniques',
+      2,
+    );
+    await _insertSubject(db, 'ENS3273', 'Environmental Toxicology', 3);
+    await _insertSubject(
+      db,
+      'ACU3212',
+      'Management and Entrepreneurial Skills',
+      2,
+    );
+
+    // Level 4 - Semester I (Core Courses)
+    await _insertSubject(db, 'ENS4112', 'Project Planning and Management', 2);
+    await _insertSubject(db, 'ENS4122', 'Cleaner Production', 2);
+    await _insertSubject(
+      db,
+      'ENS4133',
+      'Research Methods and Experimental Design',
+      3,
+    );
+
+    // Level 4 - Semester I (Elective Courses)
+    await _insertSubject(db, 'ENS4142', 'Limnology and Wetland Management', 2);
+    await _insertSubject(db, 'ENS4152', 'Advanced Water Treatment', 2);
+    await _insertSubject(db, 'ENS4163', 'Groundwater Management', 3);
+    await _insertSubject(db, 'ENS4173', 'Environmental Microbiology', 3);
+    await _insertSubject(db, 'ENS4183', 'Advanced Spectroscopic Methods', 3);
+    await _insertSubject(db, 'ENS4192', 'Climate Change', 2);
+    await _insertSubject(db, 'ENS41(10)2', 'Environmental Communication', 2);
+    await _insertSubject(db, 'ENS41(11)3', 'Metrology', 3);
+
+    // Level 4 - Semester II (Core Courses)
+    await _insertSubject(db, 'ENS4211', 'Industrial Training', 1);
+    await _insertSubject(db, 'ENS4226', 'Research Project', 6);
+
+    // Level 4 - Semester II (Elective Courses)
+    await _insertSubject(db, 'ENS4232', 'Environmental System Modeling', 2);
+    await _insertSubject(
+      db,
+      'ENS4242',
+      'Plantation Forestry and Environment',
+      2,
+    );
+    await _insertSubject(db, 'ENS4252', 'Integrated Weed Management', 2);
+
+    //TECH
+    // Level 1 - Semester 1
+    await _insertSubject(db, 'TICT1114', 'Essentials of ICT', 4);
+    await _insertSubject(db, 'TICT1123', 'Mathematics for Technology', 3);
+    await _insertSubject(
+      db,
+      'TICT1134',
+      'Fundamentals of Computer Programming',
+      4,
+    );
+    await _insertSubject(db, 'TICT1142', 'Fundamentals of Web Technologies', 2);
+    await _insertSubject(db, 'TICT1152', 'Principles of Management', 2);
+    await _insertSubject(db, 'AUX1113', 'English Language I', 3); // Non-GPA
+
+    // Level 1 - Semester 2
+    await _insertSubject(db, 'TICT1212', 'Discrete Structures', 2);
+    await _insertSubject(db, 'TICT1224', 'Object Oriented Programming', 4);
+    await _insertSubject(db, 'TICT1233', 'Operating Systems', 3);
+    await _insertSubject(
+      db,
+      'TICT1243',
+      'Electronics and Digital Circuit Designs',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'TICT1252',
+      'Computational Engineering Drawing',
+      2,
+    );
+    await _insertSubject(db, 'TICT1261', 'IT Law', 1);
+    await _insertSubject(
+      db,
+      'AUX1212',
+      'Social Harmony and Active Citizenship',
+      2,
+    ); // Non-GPA
+
+    // Level 2 - Semester 1
+    await _insertSubject(db, 'TICT2113', 'Data Structures and Algorithms', 3);
+    await _insertSubject(db, 'TICT2122', 'Statistics for Technology', 2);
+    await _insertSubject(db, 'TICT2134', 'Advanced Computer Programming', 4);
+    await _insertSubject(
+      db,
+      'TICT2142',
+      'Multimedia Design and Technologies',
+      2,
+    );
+    await _insertSubject(db, 'TICT2153', 'Human Computer Interaction', 3);
+    await _insertSubject(db, 'AUX2113', 'English Language II', 3); // Non-GPA
+
+    // Level 2 - Semester 2
+    await _insertSubject(db, 'TICT2212', 'Operational Research', 2);
+    await _insertSubject(db, 'TICT2222', 'Computer Networks', 2);
+    await _insertSubject(db, 'TICT2233', 'Database Management Systems', 3);
+    await _insertSubject(db, 'TICT2244', 'Computer Graphics', 4);
+    await _insertSubject(db, 'TICT2252', 'System Analysis and Design', 2);
+    await _insertSubject(db, 'TICT2263', 'Accounting for Technology', 3);
+    await _insertSubject(
+      db,
+      'AUX2212',
+      'Communication and Soft Skills',
+      2,
+    ); // Non-GPA
+
+    // Level 3 - Semester 1
+    await _insertSubject(
+      db,
+      'TICT3113',
+      'Computer Architecture and Organization',
+      3,
+    );
+    await _insertSubject(
+      db,
+      'TICT3123',
+      'Advanced Database Management Systems',
+      3,
+    );
+    await _insertSubject(db, 'TICT3132', 'Advanced Web Technologies', 2);
+    await _insertSubject(
+      db,
+      'TICT3142',
+      'Social and Professional Issues in IT',
+      2,
+    );
+    await _insertSubject(db, 'TICT3153', 'Software Engineering', 3);
+    await _insertSubject(db, 'TICT3162', 'Information Security', 2); // Non-GPA
+    await _insertSubject(db, 'AUX3112', 'Career Guidance', 2);
+
+    // Level 3 - Semester 2
+    await _insertSubject(
+      db,
+      'TICT3214',
+      'Advanced Computer Networks and Administration',
+      4,
+    );
+    await _insertSubject(db, 'TICT3222', 'IT Project Management', 2);
+    await _insertSubject(db, 'TICT3232', 'Software Quality Assurance', 2);
+    await _insertSubject(db, 'TICT3243', 'Mobile Computing', 3);
+    await _insertSubject(db, 'TICT3252', 'Green Computing', 2);
+    await _insertSubject(db, 'TICT3262', 'Distributed Systems', 2);
+    await _insertSubject(
+      db,
+      'AUX3211',
+      'Research Methodology and Scientific Writing',
+      1,
+    ); // Non-GPA
+    await _insertSubject(db, 'AUX3221', 'Entrepreneurship for Technology', 1);
+
+    // Level 4 - Semester 1
+    await _insertSubject(db, 'TICT4116', 'Group Research Project', 6);
+    await _insertSubject(db, 'TICT4126', 'Industrial Training', 6);
+
+    // Level 4 - Semester 2
+    await _insertSubject(db, 'TICT4213', 'Data Mining and Data Warehousing', 3);
+    await _insertSubject(db, 'TICT4223', 'Digital Image Processing', 3);
+    await _insertSubject(db, 'TICT4233', 'e-Commerce', 3);
+    await _insertSubject(db, 'TICT4242', 'Mobile Application Development', 2);
+    await _insertSubject(db, 'TICT4253', 'Intelligent Systems', 3);
+    await _insertSubject(db, 'TICT4262', 'Cloud Application Development', 2);
+    await _insertSubject(db, 'TICT4272', 'Applied Bio-informatics', 2);
   }
 
   Future<void> _insertSubject(
