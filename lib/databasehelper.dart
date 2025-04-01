@@ -158,17 +158,16 @@ class DatabaseHelper {
     await _insertSubject(db, 'AMA3113', 'Mathematical Modelling', 3);
     await _insertSubject(db, 'AMA3122', 'Optimization II', 2);
     await _insertSubject(db, 'STA3113', 'Regression Analysis & TA', 3);
-    await _insertSubject(db, 'CSG3112', 'Computer Graphics', 2);
-    await _insertSubject(db, 'CSG3123', 'Operating Systems', 3);
-    await _insertSubject(db, 'CSG3132', 'Web Application Development', 2);
+    await _insertSubject(db, 'CSC3112', 'Computer Graphics', 2);
+    await _insertSubject(db, 'CSC3123', 'Operating Systems', 3);
+    await _insertSubject(db, 'CSC3132', 'Web Application Development', 2);
 
     // Semester II
     await _insertSubject(db, 'AMA3213', 'Analytical Dynamics', 3);
     await _insertSubject(db, 'PMA3213', 'Complex Variables', 3);
     await _insertSubject(db, 'STA3212', 'Statistical Quality Control', 2);
-    await _insertSubject(db, 'CSG3213', 'Computer Architecture', 3);
-    await _insertSubject(db, 'CSG3222', 'Graph Theory', 2);
-    await _insertSubject(db, 'CSG3232', 'Group Project', 2);
+    await _insertSubject(db, 'CSC3213', 'Computer Architecture', 3);
+    await _insertSubject(db, 'CSC3222', 'Graph Theory', 2);
 
     //maths
     // Semester I
@@ -176,12 +175,7 @@ class DatabaseHelper {
     await _insertSubject(db, 'CSC3112', 'Computer Graphics', 2);
     await _insertSubject(db, 'CSC3123', 'Operating Systems', 3);
     await _insertSubject(db, 'CSC3132', 'Web Application Development', 2);
-    await _insertSubject(
-      db,
-      'CSH3143',
-      'Knowledge Representation and Programming in Logic',
-      3,
-    );
+    await _insertSubject(db, 'CSH3143', 'Knowledge Representation', 3);
     await _insertSubject(db, 'CSH3153', 'Human Computer Interaction', 3);
     await _insertSubject(db, 'CSH3163', 'Advanced Database System', 3);
 
@@ -200,12 +194,7 @@ class DatabaseHelper {
     await _insertSubject(db, 'CSH4144', 'Machine Learning', 4);
     await _insertSubject(db, 'CSH4152', 'Cryptography', 2);
     await _insertSubject(db, 'CSH4162', 'Compiler Design', 2);
-    await _insertSubject(
-      db,
-      'CSH4173',
-      'Numerical Linear Algebra and Finite Element Method',
-      3,
-    );
+    await _insertSubject(db, 'CSH4173', 'Numerical Linear Algebra', 3);
 
     // Semester II
     await _insertSubject(db, 'CSH4216', 'Research Project', 6);

@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:newgpaapp/it/itgpapage.dart';
-
 import 'background/bg.dart';
 import 'facultyselectionpage.dart';
 import 'package:flutter/material.dart';
@@ -92,6 +91,8 @@ class _HomepageState extends State<Homepage> {
                                 (context) => itgpapage(
                                   studentId:
                                       student['id'], // Pass the student ID
+                                  studentcourse:
+                                      student['course'], //pass course
                                 ),
                           ),
                         );
