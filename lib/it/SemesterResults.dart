@@ -243,6 +243,77 @@ class _SemesterResultsState extends State<SemesterResults> {
                   ),
                 ),
                 ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            45,
+                            100,
+                            107,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          title: const Text(
+                            'Reset Semester Results',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          content: Text(
+                            'Are you sure you want to reset all results for Semester ${widget.semester}?',
+                            style: const TextStyle(color: Colors.white70),
+                          ),
+                          actions: [
+                            TextButton(
+                              child: const Text(
+                                'Cancel',
+                                style: TextStyle(color: Colors.white70),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              child: const Text(
+                                'Reset',
+                                style: TextStyle(
+                                  color: Color.fromARGB(223, 255, 0, 0),
+                                ),
+                              ),
+                              onPressed: () async {
+                                await _dbHelper.resetSemesterResults(
+                                  widget.studentId,
+                                  widget.semester,
+                                );
+                                Navigator.of(context).pop();
+                                _loadSubjects(); // Reload subjects with empty results
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 45, 100, 107),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    minimumSize: Size(width * 0.25, height * 0.06),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 2,
+                  ),
+                  child: Text(
+                    'Reset',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+                ElevatedButton(
                   onPressed: _saveResults, // Save results to the database
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 45, 100, 107),

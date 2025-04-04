@@ -487,4 +487,37 @@ class DatabaseHelper {
     // Finally delete the student
     await db.delete('students', where: 'id = ?', whereArgs: [studentId]);
   }
+
+  Future<void> resetStudentResults(int studentId) async {
+    final db = await database;
+
+    // Delete all GPA results for the student
+    await db.delete(
+      'gpa_results',
+      where: 'student_id = ?',
+      whereArgs: [studentId],
+    );
+
+    // Reset student's GPA to 0
+    await db.update(
+      'students',
+      {'gpa': 0.0},
+      where: 'id = ?',
+      whereArgs: [studentId],
+    );
+  }
+
+  Future<void> resetSemesterResults(int studentId, int semester) async {
+    final db = await database;
+
+    // Delete GPA results for the specific semester
+    await db.delete(
+      'gpa_results',
+      where: 'student_id = ? AND semester = ?',
+      whereArgs: [studentId, semester],
+    );
+
+    // Recalculate the student's GPA after deleting semester results
+    await updateStudentGPA(studentId);
+  }
 }
