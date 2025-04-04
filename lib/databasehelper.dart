@@ -468,4 +468,23 @@ class DatabaseHelper {
       whereArgs: [studentId],
     );
   }
+
+  Future<void> deleteStudent(int studentId) async {
+    final db = await database;
+
+    // Delete related records first due to foreign key constraints
+    await db.delete(
+      'gpa_results',
+      where: 'student_id = ?',
+      whereArgs: [studentId],
+    );
+    await db.delete(
+      'student_subjects',
+      where: 'student_id = ?',
+      whereArgs: [studentId],
+    );
+
+    // Finally delete the student
+    await db.delete('students', where: 'id = ?', whereArgs: [studentId]);
+  }
 }

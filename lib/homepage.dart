@@ -82,58 +82,117 @@ class _HomepageState extends State<Homepage> {
                               left: 5,
                               right: 5,
                             ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder:
-                                (context) => itgpapage(
-                                  studentId:
-                                      student['id'], // Pass the student ID
-                                  studentcourse:
-                                      student['course'], //pass course
+                    child: Stack(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => itgpapage(
+                                      studentId:
+                                          student['id'], // Pass the student ID
+                                      studentcourse:
+                                          student['course'], //pass course
+                                    ),
+                              ),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        student['name'],
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: width * 0.05,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                          ),
-                        );
-                      },
-                      child: ListTile(
-                        contentPadding: EdgeInsets.only(
-                          left: width * 0.05,
-                          right: width * 0.05,
-                        ),
-                        title: Text(
-                          student['name'],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: width * 0.05,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 8),
-                            Text(
-                              'Faculty: ${student['faculty']}',
-                              style: const TextStyle(color: Colors.white70),
+                                Text(
+                                  'GPA: ${student['gpa'].toStringAsFixed(2)}',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: width * 0.05,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  'Faculty: ${student['faculty']}',
+                                  style: const TextStyle(color: Colors.white70),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Course: ${student['course']}',
+                                  style: const TextStyle(color: Colors.white70),
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Course: ${student['course']}',
-                              style: const TextStyle(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-                        trailing: Text(
-                          'GPA: ${student['gpa'].toStringAsFixed(2)}', // Format GPA to 2 decimal places
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: width * 0.05,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                              icon: const Icon(
+                                Icons.close,
+                                color: Color.fromARGB(223, 190, 26, 26),
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: const Text('Delete Profile'),
+                                      content: Text(
+                                        'Are you sure you want to delete ${student['name']}\'s profile?',
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          child: const Text('Cancel'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: const Text(
+                                            'Delete',
+                                            style: TextStyle(color: Colors.red),
+                                          ),
+                                          onPressed: () async {
+                                            await _dbHelper.deleteStudent(
+                                              student['id'],
+                                            );
+                                            _loadStudents(); // Reload the list
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
