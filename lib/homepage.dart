@@ -101,51 +101,55 @@ class _HomepageState extends State<Homepage> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Expanded(
-                                      child: Text(
-                                        student['name'],
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: width * 0.05,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                    Text(
+                                      student['name'],
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: width * 0.05,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Faculty: ${student['faculty']}',
+                                      style: const TextStyle(
+                                        color: Colors.white70,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      'Course: ${student['course']}',
+                                      style: const TextStyle(
+                                        color: Colors.white70,
                                       ),
                                     ),
                                   ],
                                 ),
-                                Text(
-                                  'GPA: ${student['gpa'].toStringAsFixed(2)}',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: width * 0.05,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  'Faculty: ${student['faculty']}',
-                                  style: const TextStyle(color: Colors.white70),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  'Course: ${student['course']}',
-                                  style: const TextStyle(color: Colors.white70),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'GPA: ${student['gpa'].toStringAsFixed(2)}',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: width * 0.05,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 8,
-                          right: 8,
+                          top: -7,
+                          right: -7,
                           child: Material(
                             color: Colors.transparent,
                             child: IconButton(
@@ -160,13 +164,36 @@ class _HomepageState extends State<Homepage> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      title: const Text('Delete Profile'),
+                                      backgroundColor: const Color.fromARGB(
+                                        255,
+                                        45,
+                                        100,
+                                        107,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      title: const Text(
+                                        'Delete Profile',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                       content: Text(
                                         'Are you sure you want to delete ${student['name']}\'s profile?',
+                                        style: const TextStyle(
+                                          color: Colors.white70,
+                                        ),
                                       ),
                                       actions: [
                                         TextButton(
-                                          child: const Text('Cancel'),
+                                          child: const Text(
+                                            'Cancel',
+                                            style: TextStyle(
+                                              color: Colors.white70,
+                                            ),
+                                          ),
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                           },
@@ -174,7 +201,14 @@ class _HomepageState extends State<Homepage> {
                                         TextButton(
                                           child: const Text(
                                             'Delete',
-                                            style: TextStyle(color: Colors.red),
+                                            style: TextStyle(
+                                              color: Color.fromARGB(
+                                                223,
+                                                255,
+                                                0,
+                                                0,
+                                              ),
+                                            ),
                                           ),
                                           onPressed: () async {
                                             await _dbHelper.deleteStudent(
