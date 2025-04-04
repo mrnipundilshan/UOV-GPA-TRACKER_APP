@@ -14,7 +14,7 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
   final List<String> faculties = <String>['FAS', 'Tech', 'Bussiness Studies'];
   final Map<String, List<String>> courses = {
     'FAS': ['IT', 'BIO', 'AMC', 'CS'],
-    'Tech': [],
+    'Tech': ['Tech'],
     'Bussiness Studies': [],
   };
 
@@ -87,7 +87,11 @@ class _FacSelectionPageState extends State<FacSelectionPage> {
                   onChanged: (String? newValue) {
                     setState(() {
                       selectedFac = newValue!;
-                      selectedCourse = null;
+                      if (selectedFac == 'Tech') {
+                        selectedCourse = 'Tech';
+                      } else {
+                        selectedCourse = null;
+                      }
                       availableCourses = courses[selectedFac] ?? [];
                     });
                   },

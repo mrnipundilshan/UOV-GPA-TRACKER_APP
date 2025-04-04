@@ -141,6 +141,47 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
+          if (sem == 7) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'IT4113',
+                        'IT4123',
+                        'IT4133',
+                        'IT4142',
+                        'IT4153',
+                        'EL4112',
+                        'EL4122',
+                        'EL4132',
+                        'EL4142',
+                        'EL4152',
+                        'EL4162',
+                        'EL4172',
+                        'EL4182',
+                        'EL4192',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 8) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: ['IT4216', 'IT4226'],
+                    ),
+              ),
+            );
+          }
         }
         //-------------------------------//
         if (studentcourse == "AMC") {
@@ -579,6 +620,163 @@ class sembutton extends StatelessWidget {
                         'ENS4232',
                         'ENS4242',
                         'ENS4252',
+                      ],
+                    ),
+              ),
+            );
+          }
+        }
+
+        //TECH
+        //-------------------------------//
+        if (studentcourse == "Tech") {
+          if (sem == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT1114',
+                        'TICT1123',
+                        'TICT1134',
+                        'TICT1142',
+                        'TICT1152',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT1212',
+                        'TICT1224',
+                        'TICT1233',
+                        'TICT1243',
+                        'TICT1252',
+                        'TICT1261',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT2113',
+                        'TICT2122',
+                        'TICT2134',
+                        'TICT2142',
+                        'TICT2153',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 4) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT2212',
+                        'TICT2222',
+                        'TICT2233',
+                        'TICT2244',
+                        'TICT2252',
+                        'TICT2263',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 5) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT3113',
+                        'TICT3123',
+                        'TICT3132',
+                        'TICT3142',
+                        'TICT3153',
+                        'TICT3162',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 6) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT3214',
+                        'TICT3222',
+                        'TICT3232',
+                        'TICT3243',
+                        'TICT3252',
+                        'TICT3262',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 7) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: ['TICT4116', 'TICT4126'],
+                    ),
+              ),
+            );
+          }
+          if (sem == 8) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'TICT4213',
+                        'TICT4223',
+                        'TICT4233',
+                        'TICT4242',
+                        'TICT4253',
+                        'TICT4262',
+                        'TICT4272',
                       ],
                     ),
               ),

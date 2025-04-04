@@ -119,6 +119,37 @@ class _itgpapageState extends State<itgpapage> {
               ),
             ],
           ),
+          SizedBox(height: height * 0.03),
+          Text(
+            "4th Year",
+            style: TextStyle(
+              fontSize: 36,
+              color: Colors.white,
+              decoration: TextDecoration.none,
+            ),
+          ),
+          SizedBox(height: height * 0.01),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              sembutton(
+                width: width,
+                height: height,
+                name: 'Semester 01',
+                studentId: widget.studentId,
+                studentcourse: widget.studentcourse,
+                sem: 7,
+              ),
+              sembutton(
+                width: width,
+                height: height,
+                name: 'Semester 02',
+                studentId: widget.studentId,
+                studentcourse: widget.studentcourse,
+                sem: 8,
+              ),
+            ],
+          ),
         ],
       ),
     );

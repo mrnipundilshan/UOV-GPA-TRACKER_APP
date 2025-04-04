@@ -126,19 +126,9 @@ class DatabaseHelper {
     await _insertSubject(db, 'IT3262', 'Operations Research', 2);
 
     // Semester I - Core Courses
-    await _insertSubject(
-      db,
-      'IT4113',
-      'Computer Organisation and Architecture',
-      3,
-    );
+    await _insertSubject(db, 'IT4113', 'Computer OA', 3);
     await _insertSubject(db, 'IT4123', 'Agent Based Computing', 3);
-    await _insertSubject(
-      db,
-      'IT4133',
-      'Bioinformatics and Computational Biology',
-      3,
-    );
+    await _insertSubject(db, 'IT4133', 'Bioinformatics and CB', 3);
     await _insertSubject(db, 'IT4142', 'Compiler Design', 2);
     await _insertSubject(db, 'IT4153', 'Advanced Computer Networks', 3);
 
@@ -329,12 +319,7 @@ class DatabaseHelper {
     // Level 1 - Semester 1
     await _insertSubject(db, 'TICT1114', 'Essentials of ICT', 4);
     await _insertSubject(db, 'TICT1123', 'Mathematics for Technology', 3);
-    await _insertSubject(
-      db,
-      'TICT1134',
-      'Fundamentals of Computer Programming',
-      4,
-    );
+    await _insertSubject(db, 'TICT1134', 'Fundamentals of CP', 4);
     await _insertSubject(db, 'TICT1142', 'Fundamentals of Web Technologies', 2);
     await _insertSubject(db, 'TICT1152', 'Principles of Management', 2);
     await _insertSubject(db, 'AUX1113', 'English Language I', 3); // Non-GPA
@@ -343,36 +328,16 @@ class DatabaseHelper {
     await _insertSubject(db, 'TICT1212', 'Discrete Structures', 2);
     await _insertSubject(db, 'TICT1224', 'Object Oriented Programming', 4);
     await _insertSubject(db, 'TICT1233', 'Operating Systems', 3);
-    await _insertSubject(
-      db,
-      'TICT1243',
-      'Electronics and Digital Circuit Designs',
-      3,
-    );
-    await _insertSubject(
-      db,
-      'TICT1252',
-      'Computational Engineering Drawing',
-      2,
-    );
+    await _insertSubject(db, 'TICT1243', 'Electronics and DCD', 3);
+    await _insertSubject(db, 'TICT1252', 'Computational ED', 2);
     await _insertSubject(db, 'TICT1261', 'IT Law', 1);
-    await _insertSubject(
-      db,
-      'AUX1212',
-      'Social Harmony and Active Citizenship',
-      2,
-    ); // Non-GPA
+    await _insertSubject(db, 'AUX1212', 'Social Harmony and AC', 2); // Non-GPA
 
     // Level 2 - Semester 1
     await _insertSubject(db, 'TICT2113', 'Data Structures and Algorithms', 3);
     await _insertSubject(db, 'TICT2122', 'Statistics for Technology', 2);
     await _insertSubject(db, 'TICT2134', 'Advanced Computer Programming', 4);
-    await _insertSubject(
-      db,
-      'TICT2142',
-      'Multimedia Design and Technologies',
-      2,
-    );
+    await _insertSubject(db, 'TICT2142', 'Multimedia Design', 2);
     await _insertSubject(db, 'TICT2153', 'Human Computer Interaction', 3);
     await _insertSubject(db, 'AUX2113', 'English Language II', 3); // Non-GPA
 
@@ -383,55 +348,25 @@ class DatabaseHelper {
     await _insertSubject(db, 'TICT2244', 'Computer Graphics', 4);
     await _insertSubject(db, 'TICT2252', 'System Analysis and Design', 2);
     await _insertSubject(db, 'TICT2263', 'Accounting for Technology', 3);
-    await _insertSubject(
-      db,
-      'AUX2212',
-      'Communication and Soft Skills',
-      2,
-    ); // Non-GPA
+    await _insertSubject(db, 'AUX2212', 'Communication and SS', 2); // Non-GPA
 
     // Level 3 - Semester 1
-    await _insertSubject(
-      db,
-      'TICT3113',
-      'Computer Architecture and Organization',
-      3,
-    );
-    await _insertSubject(
-      db,
-      'TICT3123',
-      'Advanced Database Management Systems',
-      3,
-    );
+    await _insertSubject(db, 'TICT3113', 'Computer AO', 3);
+    await _insertSubject(db, 'TICT3123', 'Advanced Database MS', 3);
     await _insertSubject(db, 'TICT3132', 'Advanced Web Technologies', 2);
-    await _insertSubject(
-      db,
-      'TICT3142',
-      'Social and Professional Issues in IT',
-      2,
-    );
+    await _insertSubject(db, 'TICT3142', 'Social and Professional Issues', 2);
     await _insertSubject(db, 'TICT3153', 'Software Engineering', 3);
-    await _insertSubject(db, 'TICT3162', 'Information Security', 2); // Non-GPA
-    await _insertSubject(db, 'AUX3112', 'Career Guidance', 2);
+    await _insertSubject(db, 'TICT3162', 'Information Security', 2);
+    await _insertSubject(db, 'AUX3112', 'Career Guidance', 2); // Non-GPA
 
     // Level 3 - Semester 2
-    await _insertSubject(
-      db,
-      'TICT3214',
-      'Advanced Computer Networks and Administration',
-      4,
-    );
+    await _insertSubject(db, 'TICT3214', 'Advanced Computer Networks', 4);
     await _insertSubject(db, 'TICT3222', 'IT Project Management', 2);
     await _insertSubject(db, 'TICT3232', 'Software Quality Assurance', 2);
     await _insertSubject(db, 'TICT3243', 'Mobile Computing', 3);
     await _insertSubject(db, 'TICT3252', 'Green Computing', 2);
     await _insertSubject(db, 'TICT3262', 'Distributed Systems', 2);
-    await _insertSubject(
-      db,
-      'AUX3211',
-      'Research Methodology and Scientific Writing',
-      1,
-    ); // Non-GPA
+    await _insertSubject(db, 'AUX3211', 'Research Methodology', 1); // Non-GPA
     await _insertSubject(db, 'AUX3221', 'Entrepreneurship for Technology', 1);
 
     // Level 4 - Semester 1
