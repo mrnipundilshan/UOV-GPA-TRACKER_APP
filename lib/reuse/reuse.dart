@@ -415,6 +415,176 @@ class sembutton extends StatelessWidget {
             );
           }
         }
+
+        //BIO
+        //-------------------------------//
+        if (studentcourse == "BIO") {
+          if (sem == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS1112',
+                        'ENS1121',
+                        'ENS1132',
+                        'ENS1142',
+                        'ENS1162',
+                        'CCU1113',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS1212',
+                        'ENS1223',
+                        'ENS1232',
+                        'ENS1242',
+                        'ENS1253',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS2112',
+                        'ENS2123',
+                        'ENS2132',
+                        'ENS2142',
+                        'ENS2152',
+                        'ENS2162',
+                        'ENS2172',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 4) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS2213',
+                        'ENS2222',
+                        'ENS2233',
+                        'ENS2242',
+                        'ENS2252',
+                        'ENS2263',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 5) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS3113',
+                        'ENS3122',
+                        'ENS3132',
+                        'ENS3143',
+                        'ENS3153',
+                        'ENS3162',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 6) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS3213',
+                        'ENS3222',
+                        'ENS3232',
+                        'ENS3242',
+                        'ENS3251',
+                        'ENS3262',
+                        'ENS3273',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 7) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS4112',
+                        'ENS4122',
+                        'ENS4133',
+                        'ENS4142',
+                        'ENS4152',
+                        'ENS4163',
+                        'ENS4173',
+                        'ENS4183',
+                        'ENS4192',
+                        'ENS41(10)2',
+                        'ENS41(11)3',
+                      ],
+                    ),
+              ),
+            );
+          }
+          if (sem == 8) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => SemesterResults(
+                      studentId: studentId,
+                      semester: sem,
+                      courseCodes: [
+                        'ENS4211',
+                        'ENS4226',
+                        'ENS4232',
+                        'ENS4242',
+                        'ENS4252',
+                      ],
+                    ),
+              ),
+            );
+          }
+        }
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 45, 100, 107),
