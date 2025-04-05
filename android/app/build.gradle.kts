@@ -29,7 +29,7 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = 35
-        versionCode = 6
+        versionCode = 9
         versionName = flutter.versionName
     }
 
@@ -57,7 +57,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Enable debug symbols for native code
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
+        
+        
     }
 }
 
