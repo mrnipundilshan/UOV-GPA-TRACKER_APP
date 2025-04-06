@@ -195,7 +195,7 @@ class DatabaseHelper {
 
     //maths
     // Semester I
-    await _insertSubject(db, 'CSH3143', 'Knowledge Representation', 3);
+    await _insertSubject(db, 'CSH3143', 'Knowledge Representation and PL', 3);
     await _insertSubject(db, 'CSH3153', 'Human Computer Interaction', 3);
     await _insertSubject(db, 'CSH3163', 'Advanced Database System', 3);
 
@@ -220,18 +220,8 @@ class DatabaseHelper {
 
     //BIO
     // Level 1 - Semester I
-    await _insertSubject(
-      db,
-      'ENS1112',
-      'Fundamentals in Environmental Chemistry',
-      2,
-    );
-    await _insertSubject(
-      db,
-      'ENS1121',
-      'Analysis of Chemical Elements and Compounds',
-      1,
-    );
+    await _insertSubject(db, 'ENS1112', 'Fundamentals in EC', 2);
+    await _insertSubject(db, 'ENS1121', 'Analysis of Chemical EC', 1);
     await _insertSubject(db, 'ENS1132', 'Cell and Molecular Biology', 2);
     await _insertSubject(db, 'ENS1142', 'Plant Biology', 2);
     await _insertSubject(db, 'ENS1153', 'Fundamentals of Animal Biology', 3);
@@ -284,12 +274,6 @@ class DatabaseHelper {
     await _insertSubject(db, 'ENS3251', 'Seminar', 1);
     await _insertSubject(db, 'ENS3262', 'Biomolecules and BT', 2);
     await _insertSubject(db, 'ENS3273', 'Environmental Toxicology', 3);
-    await _insertSubject(
-      db,
-      'ACU3212',
-      'Management and Entrepreneurial Skills',
-      2,
-    );
 
     // Level 4 - Semester I (Core Courses)
     await _insertSubject(db, 'ENS4112', 'Project Planning and Management', 2);
@@ -519,5 +503,71 @@ class DatabaseHelper {
 
     // Recalculate the student's GPA after deleting semester results
     await updateStudentGPA(studentId);
+  }
+
+  Future<double> calculateSemesterGPA(int studentId, int semester) async {
+    final db = await database;
+
+    // Query GPA results for the specific semester
+    final List<Map<String, dynamic>> results = await db.rawQuery(
+      '''
+      SELECT g.gpa, s.credits
+      FROM gpa_results g
+      INNER JOIN subjects s ON g.course_code = s.course_code
+      WHERE g.student_id = ? AND g.semester = ?
+    ''',
+      [studentId, semester],
+    );
+
+    if (results.isEmpty) return 0.0;
+
+    double totalPoints = 0.0;
+    int totalCredits = 0;
+
+    for (var result in results) {
+      final grade = result['gpa'] as String;
+      final credits = result['credits'] as int;
+
+      double gradePoints = _gradeToPoints(grade);
+      totalPoints += gradePoints * credits;
+      totalCredits += credits;
+    }
+
+    return totalCredits > 0 ? totalPoints / totalCredits : 0.0;
+  }
+
+  Future<double> calculateYearGPA(int studentId, int year) async {
+    final db = await database;
+
+    // Calculate semester range for the year
+    int startSemester = (year - 1) * 2 + 1;
+    int endSemester = year * 2;
+
+    // Query GPA results for all semesters in the year
+    final List<Map<String, dynamic>> results = await db.rawQuery(
+      '''
+      SELECT g.gpa, s.credits
+      FROM gpa_results g
+      INNER JOIN subjects s ON g.course_code = s.course_code
+      WHERE g.student_id = ? AND g.semester >= ? AND g.semester <= ?
+    ''',
+      [studentId, startSemester, endSemester],
+    );
+
+    if (results.isEmpty) return 0.0;
+
+    double totalPoints = 0.0;
+    int totalCredits = 0;
+
+    for (var result in results) {
+      final grade = result['gpa'] as String;
+      final credits = result['credits'] as int;
+
+      double gradePoints = _gradeToPoints(grade);
+      totalPoints += gradePoints * credits;
+      totalCredits += credits;
+    }
+
+    return totalCredits > 0 ? totalPoints / totalCredits : 0.0;
   }
 }

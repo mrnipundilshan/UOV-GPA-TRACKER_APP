@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newgpaapp/it/semesterResults.dart';
+import 'package:newgpaapp/databasehelper.dart';
 
-class sembutton extends StatelessWidget {
+class sembutton extends StatefulWidget {
   const sembutton({
     super.key,
     required this.width,
@@ -20,18 +21,42 @@ class sembutton extends StatelessWidget {
   final String studentcourse;
 
   @override
+  State<sembutton> createState() => _sembuttonState();
+}
+
+class _sembuttonState extends State<sembutton> {
+  final DatabaseHelper _dbHelper = DatabaseHelper();
+  double semesterGPA = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSemesterGPA();
+  }
+
+  Future<void> _loadSemesterGPA() async {
+    double gpa = await _dbHelper.calculateSemesterGPA(
+      widget.studentId,
+      widget.sem,
+    );
+    setState(() {
+      semesterGPA = gpa;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (studentcourse == "IT") {
-          if (sem == 1) {
+        if (widget.studentcourse == "IT") {
+          if (widget.sem == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT113',
                         'IT1122',
@@ -43,14 +68,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 2) {
+          if (widget.sem == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT1214',
                         'IT1223',
@@ -63,14 +88,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 3) {
+          if (widget.sem == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT2114',
                         'IT2122',
@@ -82,14 +107,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 4) {
+          if (widget.sem == 4) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT2212',
                         'IT2223',
@@ -101,14 +126,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 5) {
+          if (widget.sem == 5) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT3113',
                         'IT3122',
@@ -121,14 +146,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 6) {
+          if (widget.sem == 6) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT3213',
                         'IT3223',
@@ -141,14 +166,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 7) {
+          if (widget.sem == 7) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'IT4113',
                         'IT4123',
@@ -169,14 +194,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 8) {
+          if (widget.sem == 8) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: ['IT4216', 'IT4226'],
                     ),
               ),
@@ -184,15 +209,15 @@ class sembutton extends StatelessWidget {
           }
         }
         //-------------------------------//
-        if (studentcourse == "AMC") {
-          if (sem == 1) {
+        if (widget.studentcourse == "AMC") {
+          if (widget.sem == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA1113',
                         'PMA1113',
@@ -204,14 +229,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 2) {
+          if (widget.sem == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA1213',
                         'PMA1213',
@@ -223,14 +248,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 3) {
+          if (widget.sem == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA2113',
                         'AMA2122',
@@ -243,14 +268,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 4) {
+          if (widget.sem == 4) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA2213',
                         'STA2213',
@@ -262,14 +287,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 5) {
+          if (widget.sem == 5) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA3113',
                         'AMA3122',
@@ -282,14 +307,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 6) {
+          if (widget.sem == 6) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA3213',
                         'PMA3213',
@@ -303,15 +328,15 @@ class sembutton extends StatelessWidget {
           }
         }
         //-------------------------------//
-        if (studentcourse == "CS") {
-          if (sem == 1) {
+        if (widget.studentcourse == "CS") {
+          if (widget.sem == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA1113',
                         'PMA1113',
@@ -323,14 +348,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 2) {
+          if (widget.sem == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA1213',
                         'PMA1213',
@@ -342,14 +367,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 3) {
+          if (widget.sem == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA2113',
                         'AMA2122',
@@ -362,14 +387,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 4) {
+          if (widget.sem == 4) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA2213',
                         'STA2213',
@@ -381,19 +406,20 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 5) {
+          if (widget.sem == 5) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'AMA3122',
                         'CSC3112',
                         'CSC3123',
                         'CSC3132',
+                        'CSH3143',
                         'CSH3153',
                         'CSH3163',
                       ],
@@ -401,14 +427,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 6) {
+          if (widget.sem == 6) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'CSC3213',
                         'CSC3222',
@@ -421,14 +447,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 7) {
+          if (widget.sem == 7) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'CSH4112',
                         'CSH4123',
@@ -442,14 +468,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 8) {
+          if (widget.sem == 8) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: ['CSH4216', 'CSH4226'],
                     ),
               ),
@@ -459,15 +485,15 @@ class sembutton extends StatelessWidget {
 
         //BIO
         //-------------------------------//
-        if (studentcourse == "BIO") {
-          if (sem == 1) {
+        if (widget.studentcourse == "BIO") {
+          if (widget.sem == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS1112',
                         'ENS1121',
@@ -480,14 +506,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 2) {
+          if (widget.sem == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS1212',
                         'ENS1223',
@@ -499,14 +525,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 3) {
+          if (widget.sem == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS2112',
                         'ENS2123',
@@ -520,14 +546,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 4) {
+          if (widget.sem == 4) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS2213',
                         'ENS2222',
@@ -540,14 +566,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 5) {
+          if (widget.sem == 5) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS3113',
                         'ENS3122',
@@ -560,14 +586,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 6) {
+          if (widget.sem == 6) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS3213',
                         'ENS3222',
@@ -581,14 +607,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 7) {
+          if (widget.sem == 7) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS4112',
                         'ENS4122',
@@ -606,14 +632,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 8) {
+          if (widget.sem == 8) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'ENS4211',
                         'ENS4226',
@@ -629,15 +655,15 @@ class sembutton extends StatelessWidget {
 
         //TECH
         //-------------------------------//
-        if (studentcourse == "Tech") {
-          if (sem == 1) {
+        if (widget.studentcourse == "Tech") {
+          if (widget.sem == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT1114',
                         'TICT1123',
@@ -649,14 +675,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 2) {
+          if (widget.sem == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT1212',
                         'TICT1224',
@@ -669,14 +695,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 3) {
+          if (widget.sem == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT2113',
                         'TICT2122',
@@ -688,14 +714,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 4) {
+          if (widget.sem == 4) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT2212',
                         'TICT2222',
@@ -708,14 +734,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 5) {
+          if (widget.sem == 5) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT3113',
                         'TICT3123',
@@ -728,14 +754,14 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 6) {
+          if (widget.sem == 6) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT3214',
                         'TICT3222',
@@ -748,27 +774,27 @@ class sembutton extends StatelessWidget {
               ),
             );
           }
-          if (sem == 7) {
+          if (widget.sem == 7) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: ['TICT4116', 'TICT4126'],
                     ),
               ),
             );
           }
-          if (sem == 8) {
+          if (widget.sem == 8) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
                     (context) => SemesterResults(
-                      studentId: studentId,
-                      semester: sem,
+                      studentId: widget.studentId,
+                      semester: widget.sem,
                       courseCodes: [
                         'TICT4213',
                         'TICT4223',
@@ -786,12 +812,35 @@ class sembutton extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 45, 100, 107),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        minimumSize: Size(width * 0.35, height * 0.08),
+        padding: EdgeInsets.symmetric(
+          horizontal: widget.width * 0.05,
+          vertical: widget.height * 0.02,
+        ),
+        minimumSize: Size(widget.width * 0.35, widget.height * 0.1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 2,
       ),
-      child: Text(name, style: TextStyle(fontSize: 16, color: Colors.white)),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            widget.name,
+            style: TextStyle(
+              fontSize: widget.width * 0.04,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: widget.height * 0.005),
+          Text(
+            'GPA: ${semesterGPA.toStringAsFixed(2)}',
+            style: TextStyle(
+              fontSize: widget.width * 0.035,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

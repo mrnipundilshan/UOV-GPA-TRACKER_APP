@@ -10,16 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "GPA APP",
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.cyanAccent,
-        ),
-        home: Homepage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "GPA APP",
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.cyanAccent,
       ),
+      home: Homepage(),
     );
   }
 }
