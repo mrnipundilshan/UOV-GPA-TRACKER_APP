@@ -27,6 +27,28 @@ A Flutter-based mobile application for calculating and tracking student GPAs. Th
   - Visual representation of academic performance
   - Responsive layout for different screen sizes
 
+## Screenshots
+
+<table>
+  <!-- Row 1 -->
+  <tr>
+    <td><img src="./assets/Screenshots/1.png" width="200" alt="Screenshot 1"></td>
+    <td><img src="./assets/Screenshots/2.png" width="200" alt="Screenshot 2"></td>
+    <td><img src="./assets/Screenshots/10.png" width="200" alt="Screenshot 3"></td>
+    <td><img src="./assets/Screenshots/4.png" width="200" alt="Screenshot 4"></td>
+    <td><img src="./assets/Screenshots/5.png" width="200" alt="Screenshot 5"></td>
+  </tr>
+  <!-- Row 2 -->
+  <tr>
+    <td><img src="./assets/Screenshots/6.png" width="200" alt="Screenshot 6"></td>
+    <td><img src="./assets/Screenshots/7.png" width="200" alt="Screenshot 7"></td>
+    <td><img src="./assets/Screenshots/8.png" width="200" alt="Screenshot 8"></td>
+    <td><img src="./assets/Screenshots/9.png" width="200" alt="Screenshot 9"></td>
+    <td><img src="./assets/Screenshots/3.png" width="200" alt="Screenshot 10"></td>
+  </tr>
+</table>
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -40,12 +62,12 @@ A Flutter-based mobile application for calculating and tracking student GPAs. Th
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/gpa-calculator.git
+git clone https://github.com/mrnipundilshan/UOV-GPA-TRACKER_APP.git
 ```
 
 2. Navigate to the project directory
 ```bash
-cd gpa-calculator
+cd UOV-GPA-TRACKER_APP
 ```
 
 3. Install dependencies
@@ -86,14 +108,6 @@ The application uses SQLite for data storage with the following tables:
 - `gpa_results`: Stores grade information
 - `student_subjects`: Links students with their subjects
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
@@ -106,7 +120,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+Linkedin - [Nipun Dilshan](https://www.linkedin.com/in/nipundilshan/)
 
 
 
